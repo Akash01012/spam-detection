@@ -7,6 +7,7 @@ from .serializers import UserSerializer, ContactSerializer, SpamMarkSerializer
 from django.db.models import Q
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.permissions import AllowAny
+from rest_framework.views import APIView
 
 
 class APIVisit(APIView):
