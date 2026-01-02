@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spam Detection API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+            background: #f8f9fa;
+            color: #333;
+        }
+        h1 { color: #2c3e50; }
+        a { color: #3498db; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        ul { list-style-type: disc; margin-left: 20px; }
+        code { background: #eaeaea; padding: 2px 6px; border-radius: 4px; }
+        .endpoint { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Spam Detection REST API</h1>
+    <p><strong>Status:</strong> Running ✅</p>
+    <p>This is an API-only backend. You can use <a href="https://www.postman.com/">Postman</a> or any HTTP client to test the endpoints.</p>
+
+    <h2>Endpoints</h2>
+    <ul>
+        <li class="endpoint"><code>POST /register/</code> – Register a new user</li>
+        <li class="endpoint"><code>POST /login/</code> – Obtain JWT token</li>
+        <li class="endpoint"><code>GET /contacts/</code> – List your contacts (protected)</li>
+        <li class="endpoint"><code>POST /mark-spam/</code> – Mark a phone number as spam (protected)</li>
+        <li class="endpoint"><code>GET /search-by-name/?name=&lt;name&gt;</code> – Search contacts by name (protected)</li>
+        <li class="endpoint"><code>GET /search-by-phone/?phone_number=&lt;number&gt;</code> – Search by phone number (protected)</li>
+    </ul>
+
+    <p>For full documentation and examples, visit the <a href="https://github.com/Akash01012/spam-detection" target="_blank">GitHub README</a>.</p>
+</body>
+</html>

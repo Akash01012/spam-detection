@@ -8,12 +8,18 @@ from django.db.models import Q
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.permissions import AllowAny
 from rest_framework.views import APIView
+from django.shortcuts import render
 
 
 class APIVisit(APIView):
     permission_classes = [AllowAny]
 
     def get(self, request):
+        # If the client accepts HTML, render template
+        if 'text/html' in request.META.get('HTTP_ACCEPT', ''):
+            return render(request, 'api_home.html')
+
+        # Otherwise return JSON
         return Response({
             "message": "You are on the base URL of the Spam Detection REST API.",
             "info": "This is an API-only backend. Please use Postman or any HTTP client to test the endpoints.",
