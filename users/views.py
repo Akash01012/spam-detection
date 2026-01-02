@@ -25,7 +25,7 @@ class APIVisit(APIView):
                 "GET /search-by-phone/?phone_number=<number>"
             ],
             "documentation": "For detailed usage instructions, visit the README:",
-            "readme_url": "https://github.com/your-username/spam-detection-api"
+            "readme_url": "https://github.com/Akash01012/spam-detection"
         })
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
