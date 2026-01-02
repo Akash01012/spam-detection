@@ -6,8 +6,27 @@ from rest_framework.exceptions import ValidationError
 from .serializers import UserSerializer, ContactSerializer, SpamMarkSerializer
 from django.db.models import Q
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny
 
 
+class APIVisit(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        return Response({
+            "message": "You are on the base URL of the Spam Detection REST API.",
+            "info": "This is an API-only backend. Please use Postman or any HTTP client to test the endpoints.",
+            "endpoints": [
+                "POST /register/",
+                "POST /login/",
+                "GET /contacts/",
+                "POST /mark-spam/",
+                "GET /search-by-name/?name=<name>",
+                "GET /search-by-phone/?phone_number=<number>"
+            ],
+            "documentation": "For detailed usage instructions, visit the README:",
+            "readme_url": "https://github.com/your-username/spam-detection-api"
+        })
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer

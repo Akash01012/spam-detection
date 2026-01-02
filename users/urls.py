@@ -1,9 +1,16 @@
 from django.urls import path
-from .views import RegisterView, ContactListView, SpamMarkView, SearchByNameView, SearchByPhoneView
+from .views import (
+    RegisterView,
+    ContactListView,
+    SpamMarkView,
+    SearchByNameView,
+    SearchByPhoneView,
+    APIVisit)
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 
 urlpatterns = [
+    path('', APIVisit.as_view(), name='api-visit'),
     path('register/', RegisterView.as_view(), name='register'),
     path('contacts/', ContactListView.as_view(), name='contacts'),
     path('mark-spam/', SpamMarkView.as_view(), name='mark-spam'),
